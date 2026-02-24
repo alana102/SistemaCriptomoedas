@@ -1,6 +1,8 @@
 <?php
 
 include('../Controller/verifica_login.php');
+include('../Controller/CUsuario.php');
+$usuario = CUsuario::retornarUsuario();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -34,11 +36,14 @@ include('../Controller/verifica_login.php');
             <p>Acompanhe suas compras de criptomoedas</p>
         </header>
 
+        
+
         <section class="user-info">
             <h3>Dados do Usuário</h3>
-            <p><strong>Nome:</strong> <?php echo isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) : 'Usuário'; ?></p>
-            <p><strong>Email:</strong> <?php echo isset($_SESSION['email']) ? htmlspecialchars($_SESSION['email']) : 'Email não disponível'; ?></p>
+            <p><strong>Nome:</strong> <?php echo $usuario['usu_nome']; ?></p>
+            <p><strong>Email:</strong> <?php echo $usuario['usu_email']; ?></p>
         </section>
+
 
         <section class="purchases">
             <h3>Minhas Compras</h3>

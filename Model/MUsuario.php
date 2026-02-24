@@ -15,9 +15,9 @@ class MUsuario {
     private $usu_senha;
     private $usu_saldo;
 
-    public function __construct($usu_id = null, $usu_nome = null, $usu_logradouro = null, $usu_numero = null, 
-                                $usu_bairro = null, $usu_cidade = null, $usu_estado = null, $usu_cep = null, 
-                                $usu_cpf = null, $usu_email = null, $usu_senha = null, $usu_saldo = null)
+    public function __construct($usu_id, $usu_nome, $usu_logradouro, $usu_numero, 
+                                $usu_bairro, $usu_cidade , $usu_estado , $usu_cep , 
+                                $usu_cpf , $usu_email , $usu_senha )
     {
         $this->usu_id = $usu_id;
         $this->usu_nome = $usu_nome;
@@ -30,7 +30,7 @@ class MUsuario {
         $this->usu_cpf = $usu_cpf;
         $this->usu_email = $usu_email;
         $this->usu_senha = $usu_senha;
-        $this->usu_saldo = $usu_saldo;
+      
     }
 
     // Getters

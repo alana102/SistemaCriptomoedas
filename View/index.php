@@ -1,6 +1,8 @@
 <?php
 
 include('../Controller/verifica_login.php');
+include('../Controller/CUsuario.php');
+$usuario = CUsuario::retornarUsuario();
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +37,7 @@ include('../Controller/verifica_login.php');
         <section class="dashboard">
             <div class="card">
                 <h3>Saldo Disponível</h3>
-                <p class="balance">R$ 0</p>
+                <p class="balance">R$ <?php echo $usuario['usu_saldo']; ?></p>
             </div>
 
             <div class="card">

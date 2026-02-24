@@ -23,7 +23,7 @@ session_start();
 
 
         <form method="POST" action="../Controller/login.php">
-            
+
             <?php
             if (isset($_SESSION['nao_autenticado'])) :
             ?>
@@ -57,7 +57,7 @@ session_start();
 
             <button type="submit">Entrar</button>
         </form>
-        <h6 style="margin-top: 10px; color:#555">É sua primeira vez aqui? <a href="cadastro.php" class="link">Cadastre-se</a></h6>
+        <h5 style="margin-top: 10px; color:#555">É sua primeira vez aqui? <a href="cadastro.php" class="link">Cadastre-se</a></h5>
     </div>
 
 

@@ -1,28 +1,35 @@
 <?php
+include "../DAO/conexao.php";
 session_start();
 
 if(empty($_POST['email']) || empty($_POST['senha'])) {
-	header('Location: ../View/index.php');
-	exit();
+    header('Location: ../View/index.php');
+    exit();
 }
 
-$conexao = mysqli_connect('localhost', 'root', '', 'criptomoeda') or die ('Não foi possível conectar');
+$conexao = Conexao::criarInstancia();
 
-$email = mysqli_real_escape_string($conexao, $_POST['email']);
-$senha = mysqli_real_escape_string($conexao, $_POST['senha']);
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
-$query = "select usu_email from tab_usuario where usu_email = '{$email}' and usu_senha = '{$senha}'";
-$result = mysqli_query($conexao, $query);
-$row = mysqli_num_rows($result);
+$sql = "SELECT usu_id, usu_email, usu_senha FROM tab_usuario WHERE usu_email = :email";
+$stmt = $conexao->prepare($sql);
+$stmt->bindValue(':email', $email);
+$stmt->execute();
 
-if($row == 1) {
-	$_SESSION['email'] = $email;
-	header('Location: ../View/index.php');
-	exit();
-} else{
-	$_SESSION['nao_autenticado'] = true;
-	header('Location: ../View/index.php');
-	exit();
-} 
+$usuario = $stmt->fetch();
+
+if($usuario) {
+
+    if($senha === $usuario['usu_senha']) {
+        $_SESSION['id'] = $usuario['usu_id'];
+        $_SESSION['email'] = $email;
+        header('Location: ../View/index.php');
+        exit();
+    }
+}
+
+$_SESSION['nao_autenticado'] = true;
+header('Location: ../View/index.php');
+exit();
 ?>
-
