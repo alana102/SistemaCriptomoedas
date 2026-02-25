@@ -6,9 +6,9 @@ Este projeto é um **sistema de Crypto Exchange**, que permite aos usuários com
 
 ## Funcionalidades
 - Cadastro e login de usuários  
-- Visualização de criptomoedas disponíveis e suas cotações  
+- Visualização de criptomoedas disponíveis e seus valores 
 - Compra de criptomoedas de diferentes empresas  
-- Gerenciamento de carteiras de criptomoedas  
+- Gerenciamento de perfil 
 
 ---
 
