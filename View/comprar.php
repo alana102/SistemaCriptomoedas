@@ -95,19 +95,18 @@ $listaCriptomoeda = CCriptomoeda::retornarCriptomoeda();
                                         return;
                                     }
 
-                                    // pega valor da moeda como número inteiro (em centavos)
+                                    
                                     let valorStr = valorMatch[1].replace(/\./g, '').replace(',', '');
-                                    let valor = parseInt(valorStr, 10); // inteiro
+                                    let valor = parseInt(valorStr, 10); 
                                     const quantidade = parseInt(quantidadeInput.value) || 0;
-                                    let total = valor * quantidade; // total em centavos
+                                    let total = valor * quantidade; 
 
-                                    // converte para reais com vírgula antes dos últimos dois dígitos
+                                    
                                     let totalReais = (total / 100).toFixed(2).replace('.', ',');
 
-                                    // mostra formatado
                                     valorTotalInput.value = totalReais;
 
-                                    // envia valor numérico puro (float)
+                                   
                                     valorTotalHidden.value = (total / 100).toFixed(2);
                                 }
 

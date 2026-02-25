@@ -53,7 +53,7 @@ $listaCriptomoeda = CCriptomoeda::retornarCriptomoeda();
                         <th>Empresa</th>
                         <th>Descrição</th>
                         <th>Valor</th>
-                        
+
                     </tr>
                 </thead>
                 <tbody>
@@ -66,7 +66,7 @@ $listaCriptomoeda = CCriptomoeda::retornarCriptomoeda();
                             <td><?= htmlspecialchars($criptomoeda['crip_empresa']) ?></td>
                             <td><?= htmlspecialchars($criptomoeda['crip_descricao']) ?></td>
                             <td>R$ <?= htmlspecialchars($criptomoeda['crip_valor']) ?></td>
-                            
+
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -74,7 +74,17 @@ $listaCriptomoeda = CCriptomoeda::retornarCriptomoeda();
         </header>
 
         <div style="text-align: center; margin: 20px 0;">
-            <button onclick="location.href='comprar.php'" style="background-color: #3c1c00; color: white; padding: 12px 30px; border: none; border-radius: 6px; cursor: pointer; font-size: 1em; font-weight: 600;">Comprar criptomoedas</button>
+            <div style="display: inline-flex; gap: 10px;"> <!-- container flex -->
+                <button onclick="location.href='comprar.php'"
+                    style="background-color: #3c1c00; color: white; padding: 12px 30px; border: none; border-radius: 6px; cursor: pointer; font-size: 1em; font-weight: 600;">
+                    Comprar criptomoedas
+                </button>
+
+                <button onclick="location.href='cadastrar_criptomoeda.php'"
+                    style="background-color: #3c1c00; color: white; padding: 12px 30px; border: none; border-radius: 6px; cursor: pointer; font-size: 1em; font-weight: 600;">
+                    Cadastrar criptomoeda
+                </button>
+            </div>
         </div>
 
 
