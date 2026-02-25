@@ -124,10 +124,10 @@ $listaCriptomoeda = CCriptomoeda::retornarCriptomoeda();
         inputFoto.addEventListener('change', () => {
             const file = inputFoto.files[0];
             if (file) {
-                // Mostrar nome do arquivo
+                
                 previewNome.textContent = file.name;
 
-                // Mostrar prévia da imagem
+                
                 const reader = new FileReader();
                 reader.onload = e => {
                     preview.src = e.target.result;

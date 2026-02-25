@@ -74,7 +74,7 @@ $listaCriptomoeda = CCriptomoeda::retornarCriptomoeda();
         </header>
 
         <div style="text-align: center; margin: 20px 0;">
-            <div style="display: inline-flex; gap: 10px;"> <!-- container flex -->
+            <div style="display: inline-flex; gap: 10px;"> 
                 <button onclick="location.href='comprar.php'"
                     style="background-color: #3c1c00; color: white; padding: 12px 30px; border: none; border-radius: 6px; cursor: pointer; font-size: 1em; font-weight: 600;">
                     Comprar criptomoedas
