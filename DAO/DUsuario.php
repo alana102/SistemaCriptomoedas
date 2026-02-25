@@ -99,7 +99,8 @@ class DUsuario
 
         try {
             $stmt->execute(array($usu_id));
-            header("location: ../View/logout.php");
+            header("location: ../View/index.php");
+            session_destroy();
         } catch (Exception $ex) {
 
             echo $ex;
