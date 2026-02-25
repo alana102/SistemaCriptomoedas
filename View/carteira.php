@@ -2,20 +2,24 @@
 
 include('../Controller/verifica_login.php');
 include('../Controller/CUsuario.php');
+include('../Controller/CCompra.php');
 $usuario = CUsuario::retornarUsuario();
+$listaCompra = CCompra::retornarCompra();
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carteira</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/avisos.css">
+    <link rel="icon" href="img/icons/wallet.png" type="image/png">
 
-    <style>
-        
-    </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
@@ -36,7 +40,22 @@ $usuario = CUsuario::retornarUsuario();
             <p>Acompanhe suas compras de criptomoedas</p>
         </header>
 
-        
+
+
+        <?php if (isset($_SESSION['sucesso'])): ?>
+            <div class="notification is-success">
+                <?= $_SESSION['sucesso'] ?>
+            </div>
+            <?php unset($_SESSION['sucesso']); ?>
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION['erro'])): ?>
+            <div class="notification is-danger">
+                <?= $_SESSION['erro'] ?>
+            </div>
+            <?php unset($_SESSION['erro']); ?>
+        <?php endif; ?>
+
 
         <section class="user-info">
             <h3>Dados do Usuário</h3>
@@ -45,39 +64,33 @@ $usuario = CUsuario::retornarUsuario();
         </section>
 
 
+
+
         <section class="purchases">
             <h3>Minhas Compras</h3>
             <table class="crypto-table">
                 <thead>
                     <tr>
-                        <th>Moeda</th>
-                        <th>Símbolo</th>
+                        <th>Criptomoeda</th>
                         <th>Quantidade</th>
-                        <th>Valor Unitário</th>
-                        <th>Valor Total</th>
-                        <th>Data da Compra</th>
+                        <th>Valor</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Bitcoin</td>
-                        <td>BTC</td>
-                        <td>0.5</td>
-                        <td>R$ 150.000,00</td>
-                        <td>R$ 75.000,00</td>
-                        <td>15/01/2024</td>
-                    </tr>
-                    <tr>
-                        <td>Ethereum</td>
-                        <td>ETH</td>
-                        <td>2.0</td>
-                        <td>R$ 8.500,00</td>
-                        <td>R$ 17.000,00</td>
-                        <td>10/01/2024</td>
-                    </tr>
+                    <?php foreach ($listaCompra as $compra): ?>
+                        <tr>
+
+                            <td><?= htmlspecialchars($compra['crip_nome']) ?></td>
+                            <td><?= htmlspecialchars($compra['compra_qnt_crip']) ?></td>
+                            <td>R$ <?= htmlspecialchars($compra['compra_valor_crip']) ?></td>
+
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </section>
     </div>
 </body>
+
 </html>

@@ -13,6 +13,7 @@ include "../Controller/CUsuario.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="css/login-cadastro.css">
+    <link rel="icon" href="img/icons/cadastro.png" type="image/png">
 </head>
 
 <body>

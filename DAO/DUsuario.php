@@ -3,6 +3,26 @@
 class DUsuario
 {
 
+    public static function carregarSaldo($usu_id)
+    {
+        require_once "conexao.php";
+        $conexaoBD = Conexao::criarInstancia();
+
+        $sql = "SELECT usu_saldo FROM tab_usuario WHERE usu_id = :id";
+
+        try {
+            $stmt = $conexaoBD->prepare($sql);
+            $stmt->bindValue(':id', $usu_id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $resultado ? floatval($resultado['usu_saldo']) : 0;
+        } catch (Exception $ex) {
+            echo $ex;
+            return null;
+        }
+    }
+
     public static function cadastrarUsuario(
         $usu_nome,
         $usu_logradouro,
@@ -36,10 +56,7 @@ class DUsuario
                 $usu_email,
                 $usu_senha
             ));
-            echo ("<SCRIPT LANGUAGE='JavaScript'>
-            window.alert('Usuário cadastrado com sucesso')
-            window.location.href='../View/login.php';
-            </SCRIPT>");
+            return true;
         } catch (Exception $ex) {
             echo $ex;
             return 0;
@@ -145,6 +162,27 @@ class DUsuario
         try {
             $stmt->execute(array($valor, $id));
             header("location: ../View/index.php");
+            exit();
+        } catch (Exception $ex) {
+            echo $ex;
+            return 0;
+        }
+    }
+
+    public static function retirarSaldo($id, $valor)
+    {
+        require_once "conexao.php";
+        $conexaoBD = Conexao::criarInstancia();
+
+        $sql = "UPDATE tab_usuario 
+            SET usu_saldo = usu_saldo - ? 
+            WHERE usu_id = ?";
+
+        $stmt = $conexaoBD->prepare($sql);
+
+        try {
+            $stmt->execute(array($valor, $id));
+            header("location: ../View/carteira.php");
             exit();
         } catch (Exception $ex) {
             echo $ex;

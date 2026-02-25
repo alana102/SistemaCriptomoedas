@@ -11,6 +11,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="css/login-cadastro.css">
+    <link rel="stylesheet" href="css/avisos.css">
+    <link rel="icon" href="img/icons/login.png" type="image/png">
+  
 </head>
 
 <body>
@@ -20,27 +23,27 @@ session_start();
         </div>
         <h1>Login</h1>
 
+        <?php if (isset($_SESSION['sucesso'])): ?>
+            <div class="notification is-success">
+                <?= $_SESSION['sucesso'] ?>
+            </div>
+        <?php
+            unset($_SESSION['sucesso']);
+        endif; ?>
+
+        <?php if (isset($_SESSION['erro'])): ?>
+            <div class="notification is-danger">
+                <?= $_SESSION['erro']  ?>
+            </div>
+        <?php
+            unset($_SESSION['erro']);
+        endif; ?>
+
 
 
         <form method="POST" action="../Controller/login.php">
 
-            <?php
-            if (isset($_SESSION['nao_autenticado'])) :
-            ?>
-                <div class="notification is-danger">
 
-                    <SCRIPT LANGUAGE='JavaScript'>
-                        window.alert('Usuário ou senha inválidos! Tente novamente!')
-                        window.location.href = '#';
-                    </SCRIPT>
-
-
-
-                </div>
-            <?php
-            endif;
-            unset($_SESSION['nao_autenticado']);
-            ?>
 
             <div class="form-group">
                 <label for="email">Email:</label>

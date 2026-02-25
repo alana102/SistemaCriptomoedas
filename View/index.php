@@ -14,6 +14,7 @@ $usuario = CUsuario::retornarUsuario();
     <title>Início</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="icon" href="img/icons/home.png" type="image/png">
     <style>
        
     </style>

@@ -29,7 +29,7 @@ if($usuario) {
     }
 }
 
-$_SESSION['nao_autenticado'] = true;
+$_SESSION['erro'] = "Usuário ou senha inválidos. Tente novamente!";
 header('Location: ../View/index.php');
 exit();
 ?>

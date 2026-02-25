@@ -1,6 +1,7 @@
 <?php
 
 include_once "CUsuario.php";
+include_once "CCompra.php";
 
 //Ações usuário
 
@@ -20,6 +21,11 @@ if(filter_input(INPUT_GET, "acao")=="excluir" & filter_input(INPUT_GET, "tipo")=
     CUsuario::excluirUsuario($_POST);
 }
 
-//Ações criptomoeda
+//Ações compras
+
+if(filter_input(INPUT_GET, "acao")=="comprarcrip"){
+
+    CCompra::cadastrarCompra($_POST);
+}
 
 ?>
