@@ -89,12 +89,16 @@ $usuario = CUsuario::retornarUsuario();
                 <label>CEP:</label>
                 <input name="cep" value="<?php echo $usuario['usu_cep']; ?>" class="input-editavel">
             </div>
-            <div style="text-align: center; margin: 20px ;">
-                <button  style="background-color: #3c1c00; color: white; padding: 12px 30px; border: none; border-radius: 6px; cursor: pointer; font-size: 1em; font-weight: 600;">Confirmar</button>
-            </div>
-            </form>
+
+
 
         </section>
+
+        <div style="text-align: center; margin: 20px ;">
+            <button style="background-color: #3c1c00; color: white; padding: 12px 30px; border: none; border-radius: 6px; cursor: pointer; font-size: 1em; font-weight: 600;">Confirmar</button>
+        </div>
+
+        </form>
 
 
     </div>

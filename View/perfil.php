@@ -11,7 +11,7 @@ $usuario = CUsuario::retornarUsuario();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criptomoedas - CryptoExchange</title>
+    <title>Perfil</title>
     <link rel="stylesheet" href="css/index.css">
 
 </head>
@@ -90,7 +90,35 @@ $usuario = CUsuario::retornarUsuario();
                             <p><?php echo $usuario['usu_cep']; ?></p>
                         </div>
                     </form>
+
+                    <a style="color: red; cursor: pointer;" onclick="abrirModalExclusao()">Excluir conta</a>
+
+                    <div id="modalExclusao" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000;">
+                        <div style="background:white; padding:30px; border-radius:8px; text-align:center; max-width:400px;">
+                            <h3>Confirmar Exclusão de Conta</h3>
+                            <p>Tem certeza que deseja excluir sua conta? Esta ação é irreversível.</p>
+                            <div style="margin-top:20px;">
+                                <div style="display:flex; gap:10px; justify-content:center;">
+                                    <form method="POST" action="../Controller/rotas.php?acao=excluir&tipo=usuario" style="margin:0;">
+                                        <button style="background-color:#d9534f; color:white; padding:10px 20px; border:none; border-radius:4px; cursor:pointer;">Excluir</button>
+                                    </form>
+                                    <button onclick="fecharModalExclusao()" style="background-color:#999; color:white; padding:10px 20px; border:none; border-radius:4px; cursor:pointer;">Cancelar</button> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                    function abrirModalExclusao() {
+                        document.getElementById('modalExclusao').style.display = 'flex';
+                    }
+
+                    function fecharModalExclusao() {
+                        document.getElementById('modalExclusao').style.display = 'none';
+                    }
+
             
+                    </script>
                 </section>
 
                 <div style="text-align: center; margin: 20px 0;">

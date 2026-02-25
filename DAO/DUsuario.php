@@ -71,7 +71,7 @@ class DUsuario
 
 
 
-    public static function excluirUsuario($codigo)
+    public static function excluirUsuario($usu_id)
     {
         require_once "conexao.php";
         $conexaoBD = Conexao::criarInstancia();
@@ -81,8 +81,8 @@ class DUsuario
         $stmt = $conexaoBD->prepare($sql);
 
         try {
-            $stmt->execute(array($codigo));
-            header("location: ../View/login.php");
+            $stmt->execute(array($usu_id));
+            header("location: ../View/logout.php");
         } catch (Exception $ex) {
 
             echo $ex;
@@ -106,11 +106,12 @@ class DUsuario
         require_once "conexao.php";
         $conexaoBD = Conexao::criarInstancia();
 
-        $sql = "UPDATE tab_usuario SET usu_nome=?, usu_logradouro=?, usu_numero=?, usu_bairro=?, usu_cidade=?, usu_estado=?, usu_cep=?, usu_cpf=?, usu_email=?;";
+        $sql = "UPDATE tab_usuario SET usu_nome=?, usu_logradouro=?, usu_numero=?, usu_bairro=?, usu_cidade=?, usu_estado=?, usu_cep=?, usu_cpf=?, usu_email=? where usu_id=?;";
 
         $stmt = $conexaoBD->prepare($sql);
 
         try {
+            session_start();
             $stmt->execute(array(
                 $usu_nome,
                 $usu_logradouro,
@@ -120,9 +121,31 @@ class DUsuario
                 $usu_estado,
                 $usu_cep,
                 $usu_cpf,
-                $usu_email
+                $usu_email,
+                $_SESSION['id']
             ));
             header("location: ../View/perfil.php");
+        } catch (Exception $ex) {
+            echo $ex;
+            return 0;
+        }
+    }
+
+    public static function depositarSaldo($id, $valor)
+    {
+        require_once "conexao.php";
+        $conexaoBD = Conexao::criarInstancia();
+
+        $sql = "UPDATE tab_usuario 
+            SET usu_saldo = usu_saldo + ? 
+            WHERE usu_id = ?";
+
+        $stmt = $conexaoBD->prepare($sql);
+
+        try {
+            $stmt->execute(array($valor, $id));
+            header("location: ../View/index.php");
+            exit();
         } catch (Exception $ex) {
             echo $ex;
             return 0;

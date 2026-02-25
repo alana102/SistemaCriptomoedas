@@ -1,185 +1,186 @@
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
 
-        .navbar {
-            position:sticky;
-            z-index: 1000;
-            top: 0;
-            background-color: #db9005e8;
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+.navbar {
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    background-color: #db9005e8;
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-        .navbar h1 {
-            margin-bottom: 1rem;
-        }
+.navbar h1 {
+    margin-bottom: 1rem;
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
 
-        .nav-links a:hover {
-            color: #ffde20;
-        }
+.nav-links a:hover {
+    color: #ffde20;
+}
 
-        .container {
-            
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+.container {
 
-        .hero {
-            text-align: center;
-            margin: 2rem 0;
-        }
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
 
-        .dashboard {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+.hero {
+    text-align: center;
+    margin: 2rem 0;
+}
 
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
 
-        .balance {
-            font-size: 2rem;
-            color: #3c1c00;
-            font-weight: bold;
-            margin-top: 1rem;
-        }
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-        .btn {
-            background-color: #3c1c00;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 0.5rem;
-            width: 100%;
-        }
+.balance {
+    font-size: 2rem;
+    color: #3c1c00;
+    font-weight: bold;
+    margin-top: 1rem;
+}
 
-        .btn:hover {
-            background-color: #793800;
-        }
+.btn {
+    background-color: #3c1c00;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    width: 100%;
+}
 
-        /*pagina criptomoeda*/
-        .crypto-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
+.btn:hover {
+    background-color: #793800;
+}
 
-        .crypto-table thead {
-            background-color: #3c1c00;
-            color: #fff;
-        }
+/*pagina criptomoeda*/
+.crypto-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
 
-        .crypto-table th {
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
+.crypto-table thead {
+    background-color: #3c1c00;
+    color: #fff;
+}
 
-        .crypto-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-        }
+.crypto-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
 
-        .crypto-table tbody tr:hover {
-            background-color: #f5f5f5;
-        }
+.crypto-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
 
-        .crypto-table .positive {
-            color: #27ae60;
-            font-weight: 600;
-        }
+.crypto-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
 
-        .crypto-table .negative {
-            color: #e74c3c;
-            font-weight: 600;
-        }
+.crypto-table .positive {
+    color: #27ae60;
+    font-weight: 600;
+}
 
-        /*Perfil do usuário*/
-        .user-info {
-            background: linear-gradient(135deg, #f5f7fa 0%, #ffe2b7 100%);
-            border-radius: 12px;
-            padding: 30px;
-            margin: 20px 0;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #3c1c00;
-        }
+.crypto-table .negative {
+    color: #e74c3c;
+    font-weight: 600;
+}
 
-        .user-info h3 {
-            color: #3c1c00;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+/*Perfil do usuário*/
+.user-info {
+    background: linear-gradient(135deg, #f5f7fa 0%, #ffe2b7 100%);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #3c1c00;
+}
 
-        .form-group {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
+.user-info h3 {
+    color: #3c1c00;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-        .form-group:last-child {
-            border-bottom: none;
-        }
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
 
-        .form-group label {
-            color: #2c2c2c;
-            font-weight: 600;
-            min-width: 150px;
-        }
+.form-group:last-child {
+    border-bottom: none;
+}
 
-        .form-group p {
-            color: #555;
-            font-size: 1.05em;
-            margin: 0;
-            padding: 8px 15px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 6px;
-            flex-grow: 1;
-            text-align: right;
-        }
+.form-group label {
+    color: #2c2c2c;
+    font-weight: 600;
+    min-width: 150px;
+}
 
-        .input-editavel {
-            width: 100%; 
-            padding: 10px; 
-            border: 1px solid #ccc; 
-            border-radius: 4px; 
-            font-size: 1em;
-        }
+.form-group p {
+    color: #555;
+    font-size: 1.05em;
+    margin: 0;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.input-editavel {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
